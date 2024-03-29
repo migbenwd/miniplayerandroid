@@ -1,17 +1,38 @@
 const podcasts = [
-    
+   
   {
-    title: 'Italiano',
-    artist: 'Serafino',
-    // artwork: require('./img/2142935_0_idF_idE_500x500.jpg'),
-    url: 'https://api.spreaker.com/download/episode/43447400/letteraoreste.mp3',
+    title: 'RADIO 65',
+    artist: 'Altavoz Radio',
+    artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/RADIO-65-BLANCO.png',
+    url: 'https://streaming.shoutcast.com/radio-65',
   },
 
   {
-    title: 'Emisora 2',
+    title: 'LA GS SUPER ESTACIÓN',
     artist: 'Altavoz Radio',
-    // artwork: require('./img/2142935_0_idF_idE_500x500.jpg'),
-    url: 'https://streaming.shoutcast.com/radio-65',
+    artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-GS-BLANCO.png',
+    url: 'https://streaming.shoutcast.com/gs-la-super-estacion',
+  },
+ 
+  {
+    title: 'LA JL',
+    artist: 'Altavoz Radio',
+    artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-JL-BLANCO.png',
+    url: 'https://streaming.shoutcast.com/la-jl',
+  },
+
+  {
+    title: 'LA MAXI GML',
+    artist: 'Altavoz Radio',
+    artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/A-MAXI-GML-1.png',
+    url: 'https://streaming.shoutcast.com/la-maxi-gml',
+  },
+
+  {
+    title: 'LA MAXI',
+    artist: 'Altavoz Radio',
+    artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/A-MAXI-LOGO-CONTORNO-BCO-1.png',
+    url: 'https://streaming.shoutcast.com/la-maxi',
   },
 
 

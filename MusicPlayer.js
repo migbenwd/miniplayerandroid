@@ -31,7 +31,7 @@ function MusicPlayer() {
   const playBackState = usePlaybackState();
   const progress = useProgress();
 
-  const setupPlayer = async () => {
+    const setupPlayer = async () => {
     try {
       await TrackPlayer.setupPlayer();
       await TrackPlayer.updateOptions({
@@ -174,7 +174,7 @@ const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#222831',
+    backgroundColor: '#55B4B0',
   },
   mainContainer: {
     flex: 1,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     color: '#EEEEEE',
   },
   songTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '600',
   },
   songArtist: {
