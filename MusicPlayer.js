@@ -45,14 +45,17 @@ function MusicPlayer() {
       await TrackPlayer.add(podcasts);
       await gettrackdata();
       await TrackPlayer.play();
-    } catch (error) { console.log(error); }
+    } catch (error) { 
+      console.log('error'); 
+      console.log(error); 
+    }
   };
 
   useTrackPlayerEvents([Event.PlaybackTrackChanged], async event => {
     if (event.type === Event.PlaybackTrackChanged && event.nextTrack !== null) {
       const track = await TrackPlayer.getTrack(event.nextTrack);
       const {title, artwork, artist} = track;
-      console.log(event.nextTrack);
+      // console.log(event.nextTrack); 
       setTrackIndex(event.nextTrack);
       setTrackTitle(title);
       setTrackArtist(artist);
@@ -63,11 +66,14 @@ function MusicPlayer() {
   const gettrackdata = async () => {
     let trackIndex = await TrackPlayer.getCurrentTrack();
     let trackObject = await TrackPlayer.getTrack(trackIndex);
-    console.log(trackIndex);
+
+    // console.log('trackObject.artwork---', trackObject.artwork);
+
     setTrackIndex(trackIndex);
     setTrackTitle(trackObject.title);
     setTrackArtist(trackObject.artist);
     setTrackArtwork(trackObject.artwork);
+    
   };
 
   const togglePlayBack = async playBackState => {
@@ -99,12 +105,23 @@ function MusicPlayer() {
     setupPlayer();
   }, []);
 
+
+  // console.log(trackArtwork);
+
   return (
+    
+
     <SafeAreaView style={styles.container}>
       <View style={styles.mainContainer}>
         <View style={styles.mainWrapper}>
-          {/* <Image source={trackArtwork} style={styles.imageWrapper} /> */}
+    
+          <Image 
+    style={styles.tinyLogo}
+    source={{uri:trackArtwork}}
+    />
         </View>
+
+    
         <View style={styles.songText}>
           <Text style={[styles.songContent, styles.songTitle]} numberOfLines={3}>{trackTitle}</Text>
           <Text style={[styles.songContent, styles.songArtist]} numberOfLines={2}>{trackArtist}</Text>
@@ -118,8 +135,7 @@ function MusicPlayer() {
             thumbTintColor="#FFD369"
             minimumTrackTintColor="#FFD369"
             maximumTrackTintColor="#fff"
-            onSlidingComplete={async value => await TrackPlayer.seekTo(value) }
-          />
+            onSlidingComplete={async (value) => await TrackPlayer.seekTo(value)} />
           <View style={styles.progressLevelDuraiton}>
             <Text style={styles.progressLabelText}>
               {new Date(progress.position * 1000)
@@ -135,31 +151,26 @@ function MusicPlayer() {
         </View>
         <View style={styles.musicControlsContainer}>
           <TouchableOpacity onPress={previoustrack}>
-            <Ionicons 
-              name="play-skip-back-outline" 
-              size={35} 
-              color="#FFD369" 
-            />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => togglePlayBack(playBackState) }>
             <Ionicons
-              name={
-                playBackState === State.Playing
-                  ? 'ios-pause-circle'
-                  : playBackState === State.Connecting
+              name="play-skip-back-outline"
+              size={35}
+              color="#FFD369" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => togglePlayBack(playBackState)}>
+            <Ionicons
+              name={playBackState === State.Playing
+                ? 'ios-pause-circle'
+                : playBackState === State.Connecting
                   ? 'ios-caret-down-circle'
-                  : 'play-circle'
-              }
+                  : 'play-circle'}
               size={75}
-              color="#FFD369"
-            />
+              color="#FFD369" />
           </TouchableOpacity>
           <TouchableOpacity onPress={nexttrack}>
             <Ionicons
               name="play-skip-forward-outline"
               size={35}
-              color="#FFD369"
-            />
+              color="#FFD369" />
           </TouchableOpacity>
         </View>
       </View>
@@ -176,7 +187,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#55B4B0',
   },
+
+
+  tinyLogo: {
+    width: 250,
+    height: 250,
+  },
+
   mainContainer: {
+    
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -192,6 +211,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '90%',
     borderRadius: 15,
+    backgroundColor:'red',
   },
   songText: {
     marginTop:2,

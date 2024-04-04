@@ -52,7 +52,11 @@ function MusicPlayer() {
     if (event.type === Event.PlaybackTrackChanged && event.nextTrack !== null) {
       const track = await TrackPlayer.getTrack(event.nextTrack);
       const {title, artwork, artist} = track;
-      console.log(event.nextTrack);
+      // console.log(event.nextTrack);
+      
+      console.log('artwork');
+      console.log(artwork);
+      
       setTrackIndex(event.nextTrack);
       setTrackTitle(title);
       setTrackArtist(artist);
