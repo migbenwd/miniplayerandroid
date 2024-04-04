@@ -3,8 +3,7 @@ import {View, StatusBar, StyleSheet } from 'react-native';
 import MusicPlayer from './MusicPlayer';
 
 const App = () => {
-  
-  return (
+    return (
     <View style={styles.container}>
         <StatusBar barStyle="light-content" />
          <MusicPlayer />
