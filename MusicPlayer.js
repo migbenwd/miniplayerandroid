@@ -103,7 +103,7 @@ function MusicPlayer() {
     <SafeAreaView style={styles.container}>
       <View style={styles.mainContainer}>
         <View style={styles.mainWrapper}>
-          <Image source={trackArtwork} style={styles.imageWrapper} />
+          {/* <Image source={trackArtwork} style={styles.imageWrapper} /> */}
         </View>
         <View style={styles.songText}>
           <Text style={[styles.songContent, styles.songTitle]} numberOfLines={3}>{trackTitle}</Text>
@@ -148,7 +148,7 @@ function MusicPlayer() {
                   ? 'ios-pause-circle'
                   : playBackState === State.Connecting
                   ? 'ios-caret-down-circle'
-                  : 'ios-play-circle'
+                  : 'play-circle'
               }
               size={75}
               color="#FFD369"
