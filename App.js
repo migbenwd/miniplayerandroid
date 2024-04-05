@@ -112,6 +112,9 @@ function Playlist() {
     <View>
       <View style={styles.playlist}>
         <FlatList
+                horizontal={false}
+                numColumns = {2}
+        
           data={queue}
           renderItem={({item, index}) => <PlaylistItem
                                             index={index}
@@ -205,7 +208,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#112'
+    backgroundColor: 'blue'
   },
   songTitle: {
     fontSize: 32,
@@ -217,8 +220,10 @@ const styles = StyleSheet.create({
     color: '#888'
   },
   playlist: {
-    marginTop: 40,
-    marginBottom: 40
+    marginTop: 40, 
+    marginBottom: 40,
+    backgroundColor:'red'
+
   },
   playlistItem: {
     fontSize: 16,
@@ -226,7 +231,10 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     paddingLeft: 8,
     paddingRight: 8,
-    borderRadius: 4
+    borderRadius: 4,
+    color:'white',
+    width:160,
+    height:160
   },
   trackProgress: {
     marginTop: 40,
