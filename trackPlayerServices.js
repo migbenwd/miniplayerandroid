@@ -45,24 +45,32 @@ import TrackPlayer, {
       {
         id: '1',
         url: 'https://streaming.shoutcast.com/radio-65',
-        title: 'Radio Miguel',
+        title: 'Radio 65',
         artist: 'migben',
-        duration: 60,
+        duration: 6,
       },
       {
         id: '2',
         url: 'https://streaming.shoutcast.com/gs-la-super-estacion',
-        title: 'Modern Chillout',
+        title: 'La GS Super Estación',
         artist: 'penguinmusic',
-        duration: 66,
+        duration: 6,
       },
       {
         id: '3',
-        url: 'https://streaming.shoutcast.com/la-jl',
-        title: 'Powerful Beat',
+        url: 'https://streaming.shoutcast.com/la-maxi-gml',
+        title: 'La Maxi GML',
         artist: 'penguinmusic',
-        duration: 73,
-      }
+        duration: 7,
+      },
+      {
+        id: '4',
+        url: 'https://streaming.shoutcast.com/la-maxi',
+        title: 'La Maxi',
+        artist: 'penguinmusic',
+        duration: 7,
+      },
+      
     ]);
     await TrackPlayer.setRepeatMode(RepeatMode.Queue);
   };
