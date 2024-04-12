@@ -93,60 +93,24 @@ function Playlist() {
 
     return (
 
-    //   <View
-    //   style={{
-    //     flex: 1,
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     backgroundColor: "rgba(255,255,255, 1)",
-    //     height:160
-    //     // borderRadius: theme.borders_MediumRadius.borderRadius
-    //   }}
-    // >
+<View style={styles.container1}>
+     <Image
+       style={{
+         // tintColor: 'green',
+         resizeMode: 'contain',
+         height: 120,
+         width: 120,
+             backgroundColor: 'cyan',
+             marginBottom:44,
+             marginLeft:10
 
-      <TouchableOpacity onPress={handleItemPress}>
-        
-        <Text
+       }}
+       source={{
+         uri: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-GS-BLANCO.png'
+         }}
+     />
 
-        //  style={{
-        //   ...styles.playlistItem,
-        //   ...{
-        //       backgroundColor: isCurrent ? 'rgba(155,410,420,0.5)' : 'transparent'}}}
-        
-        style={{
-               backgroundColor:'green',
-               borderRadius: 10,
-               textAlign: 'center',
-               marginBottom:10,
-               marginLeft:10,
-               paddingBottom:30,
-               width:140,
-     
-
-
-               
-            
-              }}
-        
-        >
-        
-
-        <Image
-        style={{ 
-          width: 120, 
-          height: 120,
-  
-        }}
-        
-        source={{ uri: imagenfondo }}
-
-      />
-
-        </Text>
-      </TouchableOpacity>
-
-      // </View> 
-
+   </View>
 
     );
   }
@@ -260,8 +224,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
+
+  container1: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '10%',
+    textAlign: 'right',
+    backgroundColor:'red'
+  },
+
+  viewEmisora: {
+   backgroundColor: 'cyan',
+   flex: 1,
+   alignItems: "center",
+  
+  },
+
   songTitle: {
     fontSize: 32,
     marginTop: 50,
