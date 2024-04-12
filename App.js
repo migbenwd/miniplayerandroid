@@ -8,6 +8,8 @@ import {
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
+  Image,
+  Dimensions
 } from 'react-native';
 import TrackPlayer, {
   useTrackPlayerEvents,
@@ -18,6 +20,8 @@ import TrackPlayer, {
 } from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { setupPlayer, addTracks } from './trackPlayerServices';
+
+const { height, width } = Dimensions.get('window');
 
 function Header() {
   const [info, setInfo] = useState({});
@@ -40,7 +44,6 @@ function Header() {
   return(
     <View>
         <Text style={styles.songTitle}>{info.title}</Text>
-        <Text style={styles.artistName}>{info.artist}</Text>
     </View>
   );
 }
@@ -82,20 +85,69 @@ function Playlist() {
     }
   });
 
-  function PlaylistItem({index, title, isCurrent}) {
-
+  function PlaylistItem({index, nombreemisora, imagenfondo, isCurrent}) {
+    
     function handleItemPress() {
       TrackPlayer.skip(index);
     }
 
     return (
+
+    //   <View
+    //   style={{
+    //     flex: 1,
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     backgroundColor: "rgba(255,255,255, 1)",
+    //     height:160
+    //     // borderRadius: theme.borders_MediumRadius.borderRadius
+    //   }}
+    // >
+
       <TouchableOpacity onPress={handleItemPress}>
+        
         <Text
-          style={{...styles.playlistItem,
-            ...{backgroundColor: isCurrent ? '#666' : 'transparent'}}}>
-        {title}
+
+        //  style={{
+        //   ...styles.playlistItem,
+        //   ...{
+        //       backgroundColor: isCurrent ? 'rgba(155,410,420,0.5)' : 'transparent'}}}
+        
+        style={{
+               backgroundColor:'green',
+               borderRadius: 10,
+               textAlign: 'center',
+               marginBottom:10,
+               marginLeft:10,
+               paddingBottom:30,
+               width:140,
+     
+
+
+               
+            
+              }}
+        
+        >
+        
+
+        <Image
+        style={{ 
+          width: 120, 
+          height: 120,
+  
+        }}
+        
+        source={{ uri: imagenfondo }}
+
+      />
+
         </Text>
       </TouchableOpacity>
+
+      // </View> 
+
+
     );
   }
 
@@ -116,10 +168,12 @@ function Playlist() {
                 numColumns = {2}
         
           data={queue}
-          renderItem={({item, index}) => <PlaylistItem
-                                            index={index}
-                                            title={item.title}
-                                            isCurrent={currentTrack == index }/>
+          renderItem={({item, index}) => 
+          <PlaylistItem
+          index={index}
+          nombreemisora={item.title}
+          imagenfondo={item.artwork}
+          isCurrent={currentTrack == index }/>
           }
         />
       </View>
@@ -196,8 +250,6 @@ function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header/>
-      <TrackProgress/>
       <Playlist/>
     </SafeAreaView>
   );
@@ -220,21 +272,15 @@ const styles = StyleSheet.create({
     color: '#888'
   },
   playlist: {
-    marginTop: 40, 
-    marginBottom: 40,
-    backgroundColor:'red'
+    marginTop: 50, 
+    marginBottom: 50,
+   // backgroundColor:'pink',
+    padding:5,
 
   },
   playlistItem: {
-    fontSize: 16,
-    paddingTop: 4,
-    paddingBottom: 4,
-    paddingLeft: 8,
-    paddingRight: 8,
-    borderRadius: 4,
-    color:'white',
-    width:160,
-    height:160
+  
+
   },
   trackProgress: {
     marginTop: 40,

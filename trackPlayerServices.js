@@ -42,27 +42,43 @@ import TrackPlayer, {
   
   export async function addTracks() {
     await TrackPlayer.add([
+      
       {
         id: '1',
         url: 'https://streaming.shoutcast.com/radio-65',
-        title: 'Radio Miguel',
-        artist: 'migben',
-        duration: 60,
+        title: 'RADIO 65',
+        duration: 66,
+        artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/RADIO-65-BLANCO.png',
       },
       {
         id: '2',
         url: 'https://streaming.shoutcast.com/gs-la-super-estacion',
-        title: 'Modern Chillout',
-        artist: 'penguinmusic',
+        title: 'LA GS SUPER ESTACIÓN',
         duration: 66,
+        artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-GS-BLANCO.png',
       },
       {
         id: '3',
         url: 'https://streaming.shoutcast.com/la-jl',
-        title: 'Powerful Beat',
-        artist: 'penguinmusic',
+        title: 'LA JL',
+        duration: 66,
+        artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-JL-BLANCO.png',
+      },
+      {
+        id: '4',
+        url: 'https://streaming.shoutcast.com/la-maxi-gml',
+        title: 'LA MAXI GML',
         duration: 73,
+        artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/A-MAXI-GML-1.png',
+      },
+      {
+        id: '5',
+        url: 'https://streaming.shoutcast.com/la-maxi',
+        title: 'LA MAXI',
+        duration: 73,
+        artwork: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/A-MAXI-LOGO-CONTORNO-BCO-1.png',
       }
+      
     ]);
     await TrackPlayer.setRepeatMode(RepeatMode.Queue);
   };
