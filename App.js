@@ -113,10 +113,12 @@ function Playlist() {
       <View style={styles.playlist}>
         <FlatList
           data={queue}
-          renderItem={({item, index}) => <PlaylistItem
-                                            index={index}
-                                            title={item.title}
-                                            isCurrent={currentTrack == index }/>
+          renderItem={({item, index}) => 
+            <PlaylistItem
+            index={index}
+            title={item.title}
+            isCurrent={currentTrack == index }
+            />
           }
         />
       </View>
