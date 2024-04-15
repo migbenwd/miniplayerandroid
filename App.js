@@ -93,23 +93,27 @@ function Playlist() {
 
     return (
 
-<View style={styles.container1}>
+<View>
+<TouchableOpacity onPress={handleItemPress}>
      <Image
        style={{
          // tintColor: 'green',
          resizeMode: 'contain',
-         height: 120,
-         width: 120,
-             backgroundColor: 'cyan',
-             marginBottom:44,
-             marginLeft:10
-
+         height: 130,
+         width: 130,
+         backgroundColor: 'red',
+         marginLeft:11,
+         marginTop:11,
+         ...
+         {
+          backgroundColor: isCurrent ? 'rgba(155,410,420,0.5)' : 'transparent'
+         }
        }}
        source={{
-         uri: 'https://noticieroaltavoz.com/wp-content/uploads/2024/01/LA-GS-BLANCO.png'
+         uri: imagenfondo
          }}
      />
-
+ </TouchableOpacity>
    </View>
 
     );
@@ -130,6 +134,7 @@ function Playlist() {
         <FlatList
                 horizontal={false}
                 numColumns = {2}
+                contentContainerStyle={{justifyContent:"center", alignItems:"center"}}
         
           data={queue}
           renderItem={({item, index}) => 
@@ -228,17 +233,10 @@ const styles = StyleSheet.create({
   },
 
   container1: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '10%',
-    textAlign: 'right',
-    backgroundColor:'red'
   },
 
   viewEmisora: {
-   backgroundColor: 'cyan',
+   backgroundColor: 'red',
    flex: 1,
    alignItems: "center",
   
