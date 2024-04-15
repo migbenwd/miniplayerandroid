@@ -8,6 +8,7 @@ import {
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
+  Image
 } from 'react-native';
 import TrackPlayer, {
   useTrackPlayerEvents,
@@ -37,12 +38,13 @@ function Header() {
     setInfo(info);
   }
 
-  return(
-    <View>
-        <Text style={styles.songTitle}>{info.title}</Text>
-        <Text style={styles.artistName}>{info.artist}</Text>
-    </View>
-  );
+  // return(
+  //   <View>
+  //       <Text style={styles.songTitle}>{info.title}</Text>
+  //       <Text style={styles.artistName}>{info.artist}</Text>
+  //   </View>
+  // );
+
 }
 
 function TrackProgress() {
@@ -54,13 +56,14 @@ function TrackProgress() {
     return `${mins}:${secs}`;
   }
 
-  return(
-    <View>
-      <Text style={styles.trackProgress}>
-        { format(position) } / { format(duration) }
-      </Text>
-    </View>
-  );
+  // return (
+  //   <View>
+  //     <Text style={styles.trackProgress}>
+  //       { format(position) } / { format(duration) }
+  //     </Text>
+  //   </View>
+  // );
+
 }
 
 function Playlist() {
@@ -82,7 +85,7 @@ function Playlist() {
     }
   });
 
-  function PlaylistItem({index, title, isCurrent}) {
+  function PlaylistItem({index, title, isCurrent, logoemisora}) {
 
     function handleItemPress() {
       TrackPlayer.skip(index);
@@ -90,11 +93,33 @@ function Playlist() {
 
     return (
       <TouchableOpacity onPress={handleItemPress}>
-        <Text
+        {/* <Text
           style={{...styles.playlistItem,
             ...{backgroundColor: isCurrent ? '#666' : 'transparent'}}}>
         {title}
-        </Text>
+        </Text> */}
+
+      <Image
+       style={{
+         // tintColor: 'green',
+         resizeMode: 'contain',
+         height: 130,
+         width: 130,
+         backgroundColor: 'red',
+         marginLeft:11,
+         marginTop:11,
+         ...
+         {
+          backgroundColor: isCurrent ? 'rgba(155,410,420,0.5)' : 'transparent'
+         }
+       }}
+       source={{
+         uri: logoemisora
+         }}
+     />
+
+
+
       </TouchableOpacity>
     );
   }
@@ -112,11 +137,16 @@ function Playlist() {
     <View>
       <View style={styles.playlist}>
         <FlatList
+
+horizontal={false}
+numColumns = {2}
+contentContainerStyle={{justifyContent:"center", alignItems:"center"}}
           data={queue}
           renderItem={({item, index}) => 
             <PlaylistItem
             index={index}
             title={item.title}
+            logoemisora={item.artwork}
             isCurrent={currentTrack == index }
             />
           }
@@ -207,12 +237,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#112'
+    backgroundColor: 'blue'
   },
   songTitle: {
     fontSize: 32,
     marginTop: 50,
-    color: '#ccc'
+    color: 'cyan'
   },
   artistName: {
     fontSize: 24,
@@ -220,15 +250,18 @@ const styles = StyleSheet.create({
   },
   playlist: {
     marginTop: 40,
-    marginBottom: 40
+    marginBottom: 40,
   },
   playlistItem: {
-    fontSize: 16,
+    fontSize: 26,
     paddingTop: 4,
     paddingBottom: 4,
     paddingLeft: 8,
     paddingRight: 8,
-    borderRadius: 4
+    borderRadius: 4,
+    backgroundColor:'red',
+    height:120,
+    width:120
   },
   trackProgress: {
     marginTop: 40,
