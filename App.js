@@ -20,7 +20,8 @@ import TrackPlayer, {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { setupPlayer, addTracks } from './trackPlayerServices';
 
-function Header() {
+function NombreEmisora() {
+  
   const [info, setInfo] = useState({});
   useEffect(() => {
     setTrackInfo();
@@ -38,12 +39,11 @@ function Header() {
     setInfo(info);
   }
 
-  // return(
-  //   <View>
-  //       <Text style={styles.songTitle}>{info.title}</Text>
-  //       <Text style={styles.artistName}>{info.artist}</Text>
-  //   </View>
-  // );
+  return(
+    <View>
+        <Text style={styles.songTitle}>{info.title}</Text>
+    </View>
+  );
 
 }
 
@@ -137,10 +137,9 @@ function Playlist() {
     <View>
       <View style={styles.playlist}>
         <FlatList
-
-horizontal={false}
-numColumns = {2}
-contentContainerStyle={{justifyContent:"center", alignItems:"center"}}
+          horizontal={false}
+          numColumns = {2}
+          contentContainerStyle={{justifyContent:"center", alignItems:"center"}}
           data={queue}
           renderItem={({item, index}) => 
             <PlaylistItem
@@ -152,8 +151,20 @@ contentContainerStyle={{justifyContent:"center", alignItems:"center"}}
           }
         />
       </View>
-      <Controls onShuffle={handleShuffle}/>
+      
+
+      <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'cyan' }}>
+  <View style={{ flexDirection: 'row' }}>
+    <NombreEmisora/>
+    <Controls onShuffle={handleShuffle}/>
+  </View>
+</View>
+
+
+
     </View>
+
+    
   );
 }
 
@@ -187,11 +198,13 @@ function Controls({ onShuffle }) {
           size={28}
           backgroundColor="transparent"
           onPress={() => TrackPlayer.skipToNext()}/>
-        <Icon.Button
+
+        {/* <Icon.Button
           name="random"
           size={28}
           backgroundColor="transparent"
-          onPress={onShuffle}/>
+          onPress={onShuffle}/> */}
+
     </View>
   );
 }
@@ -225,7 +238,6 @@ function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header/>
       <TrackProgress/>
       <Playlist/>
     </SafeAreaView>
@@ -240,9 +252,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue'
   },
   songTitle: {
-    fontSize: 32,
-    marginTop: 50,
-    color: 'cyan'
+    fontSize: 15,
+    marginTop: 12,
+    color: 'black',
+    //backgroundColor:'green',
+    width:160,
   },
   artistName: {
     fontSize: 24,
