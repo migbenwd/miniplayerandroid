@@ -93,25 +93,23 @@ function Playlist() {
 
     return (
       <TouchableOpacity onPress={handleItemPress}>
-        {/* <Text
-          style={{...styles.playlistItem,
-            ...{backgroundColor: isCurrent ? '#666' : 'transparent'}}}>
-        {title}
-        </Text> */}
-
       <Image
        style={{
-         // tintColor: 'green',
          resizeMode: 'contain',
          height: 130,
          width: 130,
-         backgroundColor: 'red',
          marginLeft:11,
          marginTop:11,
+         marginBottom:11,
+         borderRadius:30,
+         borderColor:'gray',
+         borderWidth: 1,
+
          ...
          {
-          backgroundColor: isCurrent ? 'rgba(155,410,420,0.5)' : 'transparent'
+          backgroundColor: isCurrent ? 'rgb(62, 250, 223)' : 'rgba(82, 176, 230, 0.87)'
          }
+
        }}
        source={{
          uri: logoemisora
@@ -135,6 +133,7 @@ function Playlist() {
 
   return(
     <View>
+
       <View style={styles.playlist}>
         <FlatList
           horizontal={false}
@@ -151,18 +150,17 @@ function Playlist() {
           }
         />
       </View>
-      
 
-      <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'cyan' }}>
-  <View style={{ flexDirection: 'row' }}>
-    <NombreEmisora/>
-    <Controls onShuffle={handleShuffle}/>
-  </View>
-</View>
+      <View style={{      
+      justifyContent:"center", 
+      alignItems:"center",
+      }}>
 
+      <NombreEmisora/>  
+      <Controls onShuffle={handleShuffle}/>
 
-
-    </View>
+      </View>
+      </View>
 
     
   );
@@ -248,14 +246,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 20,
     backgroundColor: 'blue'
   },
   songTitle: {
-    fontSize: 15,
-    marginTop: 12,
-    color: 'red',
-    width:160,
+    fontSize: 20,
+    marginBottom: 20,
+    color: 'white',
+    textAlign:"center",
 
   },
   artistName: {
@@ -265,17 +262,6 @@ const styles = StyleSheet.create({
   playlist: {
     marginTop: 40,
     marginBottom: 40,
-  },
-  playlistItem: {
-    fontSize: 26,
-    paddingTop: 4,
-    paddingBottom: 4,
-    paddingLeft: 8,
-    paddingRight: 8,
-    borderRadius: 4,
-    backgroundColor:'red',
-    height:120,
-    width:120
   },
   trackProgress: {
     marginTop: 40,
