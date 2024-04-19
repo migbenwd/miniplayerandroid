@@ -254,9 +254,9 @@ const styles = StyleSheet.create({
   songTitle: {
     fontSize: 15,
     marginTop: 12,
-    color: 'black',
-    //backgroundColor:'green',
+    color: 'red',
     width:160,
+
   },
   artistName: {
     fontSize: 24,
