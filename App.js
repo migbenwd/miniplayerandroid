@@ -56,7 +56,7 @@ function TrackProgress() {
     return `${mins}:${secs}`;
   }
 
-  // return (
+  // return ( 
   //   <View>
   //     <Text style={styles.trackProgress}>
   //       { format(position) } / { format(duration) }
@@ -155,6 +155,7 @@ function Playlist() {
       justifyContent:"center", 
       alignItems:"center",
       }}>
+
 
       <NombreEmisora/>  
       <Controls onShuffle={handleShuffle}/>
