@@ -6,3 +6,5 @@ registerRootComponent(App);
 TrackPlayer.registerPlaybackService(() => require('./service'));
 
 // miguel
+
+console.log('pasó por index.js');
