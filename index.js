@@ -4,3 +4,5 @@ import App from './App';
 
 registerRootComponent(App);
 TrackPlayer.registerPlaybackService(() => require('./service'));
+
+// miguel
